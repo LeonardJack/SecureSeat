@@ -1,0 +1,40 @@
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace SecureSeat.Models
+{
+    public class Event
+    {
+        //id property, used for primary key in database
+        public int Id { get; set; }
+
+        // location with validation attributes
+        [Required(ErrorMessage = "Location is required")]
+        [StringLength(200, ErrorMessage = "Location cannot be longer than 200 characters")]
+        public string Location { get; set; }
+
+        // date with validation attributes
+        [Required(ErrorMessage = "Date is required")]
+        public DateTime Date { get; set; }
+
+        // title with validation attributes
+        [Required(ErrorMessage = "Title is required")]
+        [StringLength(100, ErrorMessage = "Title cannot be longer than 100 characters")]
+        public string Title { get; set; }
+
+        // description with validation attributes
+        [StringLength(500, ErrorMessage = "Description cannot be longer than 500 characters")]
+        [DataType(DataType.MultilineText)]
+        public string? Description { get; set; }
+
+        // owner with validation attributes
+        [Required(ErrorMessage = "Owner is required")]
+        [StringLength(50, ErrorMessage = "Owner cannot be longer than 50 characters")]
+        public string Owner { get; set; }
+
+        [Display(Name = "Date Created")]
+        public DateTime? dateCreated { get; set; }
+    }
+}
+
+

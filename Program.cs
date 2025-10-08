@@ -1,4 +1,7 @@
-namespace WebApplication1
+using Microsoft.EntityFrameworkCore;
+using SecureSeat.Data;
+
+namespace SecureSeat
 {
     public class Program
     {
@@ -8,6 +11,12 @@ namespace WebApplication1
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            //registering appdbcontext
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(
+                    builder.Configuration.GetConnectionString("DefaultConnection"),
+                    sqlServerOptions => sqlServerOptions.EnableRetryOnFailure()));
 
             var app = builder.Build();
 
