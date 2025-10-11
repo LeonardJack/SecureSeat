@@ -19,13 +19,23 @@ namespace SecureSeat.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var events = await _context.Events
-                .Where(e => e.Date >= DateTime.Now)
+            try
+            {
+                var events = await _context.Shows
                 .OrderBy(e => e.Date)
-                .Take(5)
+                .Take(3)
                 .ToListAsync();
 
-            return View(events);
+                return View(events);
+            }
+            catch (Exception ex) 
+            {
+                _logger.LogError(ex, "Error loading events in Home/Index");
+
+                
+                return View(new List<Show>());
+
+            }
         }
 
       

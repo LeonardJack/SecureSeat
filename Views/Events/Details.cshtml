@@ -1,0 +1,22 @@
+﻿@model SecureSeat.Models.Show
+    
+@{
+    ViewData["Title"] = "Details";
+}
+<h1>@Model.Title</h1>
+
+<div class="card">
+    <div class="card-body">
+        <p><strong>Description:</strong> @Model.Description</p>
+        <p><strong>Date:</strong> @Model.Date.ToString("MMM dd, yyyy")</p>
+        <p><strong>Time:</strong> @Model.Time.ToString("hh:mm tt")</p>
+        <p><strong>Location:</strong> @Model.Location</p>
+        <p><strong>Category:</strong> @Model.Category</p>
+        <p><strong>Organizer:</strong> @Model.Owner</p>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</div>

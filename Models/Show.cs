@@ -1,9 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SecureSeat.Models
 {
-    public class Event
+    public class Show
     {
         //id property, used for primary key in database
         public int Id { get; set; }
@@ -27,9 +28,20 @@ namespace SecureSeat.Models
         [DataType(DataType.MultilineText)]
         public string? Description { get; set; }
 
+        // category with validation attributes
+        [Required(ErrorMessage = "Category is required")]
+        public string Category { get; set; }
+
+        // time with validation attributes
+        [Required(ErrorMessage = "Time is required")]
+        [DataType(DataType.Time)]
+        [Display(Name = "Event Time")]
+        public DateTime Time { get; set; }
+
         // owner with validation attributes
         [Required(ErrorMessage = "Owner is required")]
         [StringLength(50, ErrorMessage = "Owner cannot be longer than 50 characters")]
+        [Display(Name = "Event Owner")]
         public string Owner { get; set; }
 
         [Display(Name = "Date Created")]

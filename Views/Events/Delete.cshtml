@@ -1,0 +1,18 @@
+﻿@model SecureSeat.Models.Show
+
+@{
+    ViewData["Title"] = "Delete Event";
+}
+
+<h1>Delete Event</h1>
+
+<div class="alert alert-warning">
+    <p>Are you sure you want to delete <strong>@Model.Title</strong>?</p>
+    <p class="mb-0">@Model.Date.ToString("MMM dd, yyyy") • @Model.Location</p>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
