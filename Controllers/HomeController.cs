@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SecureSeat.Data;
 using SecureSeat.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SecureSeat.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly AppDbContext _context;

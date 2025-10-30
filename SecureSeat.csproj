@@ -4,19 +4,32 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>e7bda233-482f-4f98-929d-cad1ecd079db</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.9" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.9">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.10">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.9" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.9">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.10">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\1000_F_291812089_cwyYm4eRFVGdMi32EjSz1y5QUwXS6fhY.jpg" />
+    <None Include="wwwroot\Images\depositphotos_25565783-stock-photo-young-party-people.jpg" />
+    <None Include="wwwroot\Images\stock-photo-anonymous-man-in-a-business-shirt-with-question-mark-on-his-face-on-dark-background-1380713438.jpg" />
+    <None Include="wwwroot\Images\stock-photo-multi-sports-proud-players-collage-on-grand-arena-549133762.jpg" />
+    <None Include="wwwroot\Images\table-music-power-63703.jpg" />
   </ItemGroup>
 
 </Project>

@@ -9,6 +9,11 @@ namespace SecureSeat
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            if (builder.Environment.IsDevelopment())
+            {
+                builder.Configuration.AddUserSecrets<Program>();
+            }
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
@@ -17,6 +22,19 @@ namespace SecureSeat
                 options.UseSqlServer(
                     builder.Configuration.GetConnectionString("DefaultConnection"),
                     sqlServerOptions => sqlServerOptions.EnableRetryOnFailure()));
+
+            //Add cookie authentication
+            builder.Services.AddAuthentication("CookieAuth")
+                .AddCookie("CookieAuth", options =>
+                {
+                    options.LoginPath = "/Login/Login";
+                    options.AccessDeniedPath = "/Login/AccessDenied";
+                    options.ExpireTimeSpan = TimeSpan.FromDays(30);
+                });
+
+            builder.Services.AddAuthorization();
+
+            builder.Services.AddHttpContextAccessor();
 
             var app = builder.Build();
 
@@ -33,6 +51,8 @@ namespace SecureSeat
 
             app.UseRouting();
 
+            
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(

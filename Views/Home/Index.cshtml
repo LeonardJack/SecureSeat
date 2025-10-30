@@ -13,8 +13,9 @@
     {
         
             <div class="card h-100 box-shadow w-25">
+               <img src="@eventItem.ImageUrl" class="card-img-top" alt="@eventItem.Title" style="height: 200px; object-fit: cover;">
                 <div class="card-body">
-                    <h5 class="card-title">@eventItem.Title</h5>
+                    
                     <h6 class="card-text">@eventItem.Category</h6>
                     <p class="card-text">@eventItem.Description</p>
                     <p class="card-text"><strong>Date:</strong> @eventItem.Date.ToString("MMMM dd, yyyy")</p>

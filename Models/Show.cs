@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SecureSeat.Models
 {
+    [Table("Shows")]
     public class Show
     {
         //id property, used for primary key in database
@@ -44,8 +45,18 @@ namespace SecureSeat.Models
         [Display(Name = "Event Owner")]
         public string Owner { get; set; }
 
+        //date created with display attribute
         [Display(Name = "Date Created")]
         public DateTime? dateCreated { get; set; }
+
+        //url for image with validation attributes
+        [Display(Name = "Image URL")]   
+        [StringLength(300, ErrorMessage = "Image URL cannot be longer than 300 characters")]
+        public string? ImageUrl { get; set; }
+
+        [NotMapped]
+        [Display(Name = "Event Image")]
+        public IFormFile? ImageFile { get; set; }
     }
 }
 
